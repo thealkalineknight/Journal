@@ -4,10 +4,10 @@
 using namespace std;
 
 
-int main() {  // nonsensical output for lulz
+int main() {  // nonsensical output when A is pressed
 	while (true) {
 		for (int i = 0; i < 256; i++) {
-			if (GetAsyncKeyState('A') & 0b1) {  //&0b1
+			if (GetAsyncKeyState('A')) {  //&0b1
 				if (std::isupper(i)) {
 					cout << (char)i;
 				}
