@@ -17,3 +17,15 @@ for current in range(len(user_list)):
 
 print("Here is your sorted list of numbers:")
 print(user_list)
+
+# split input into individual strings or single chars
+# convert to int list
+
+# for every item in the list:
+#   Take the first item as the minimum index 
+#   for every item after the current:
+#       If the next item is less than than the item before,
+#       the new minimum is that next item.
+#   swap the current index with the minimum'
+# -------
+# List fills by replacing each element with the minimum of all numbers after it.
