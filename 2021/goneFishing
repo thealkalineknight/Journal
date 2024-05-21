@@ -1,0 +1,31 @@
+noStroke();
+background(43, 156, 148);
+
+var fish = function(x, y) {
+    fill(255, 136, 0);
+    triangle(x - 75, y + 47, x - 29, y - 10, x - 76, y - 26);
+    triangle(x + 16, y + 43, x + 20, y + 15, x - 38, y - 6);
+    triangle(x - 19, y - 43, x + 44, y - 10, x - 32, y - 21);
+    fill(255, 171, 36);
+    ellipse(x, y, 119, 50);
+    fill(255, 136, 0);
+    ellipse(x + 29, y - 8, 12, 12);
+};
+
+var hook = function(x, y) {
+    fill(255, 255, 255);
+    rect(x - 191, y - 199, 2, 348);
+    fill(212, 212, 212);
+    ellipse(x - 190, y + 146, 15, 15);
+    ellipse(x - 190, y + 171, 29, 50);
+    fill(43, 156, 148);
+    ellipse(x - 196, y + 174, 29, 50);
+};
+
+hook(503, 170);
+fish(100, 100);
+fish(268, 212);
+fish(223, 141);
+fish(151, 189);
+fish(189, 42);
+fish(56, 229);
