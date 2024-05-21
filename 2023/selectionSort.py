@@ -29,3 +29,4 @@ print(user_list)
 #   swap the current index with the minimum'
 # -------
 # List fills by replacing each element with the minimum of all numbers after it.
+# It searches after the current item for the minimum. Once found, it swaps.
