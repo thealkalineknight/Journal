@@ -2,6 +2,8 @@
 #include <vector>
 using namespace std;
 
+// check here for Python + explanation: Journal/2023/insertionSort.py
+
 void insertionSort(vector<int>&nums) {
 	for (int i = 1; i < nums.size(); i++) {
 		int current = nums[i];
