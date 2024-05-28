@@ -1,6 +1,7 @@
-#include <raylib.h>
-#include "settings.h"
+#include "ball.h"
+#include "paddle.h"
 #include "food.h"
+#include "snake.h"
 #include <iostream>
 using namespace std;
 
@@ -11,6 +12,7 @@ int main() {
     SetTargetFPS(60);
     
     Food food;
+    // Snake snake;
 
     while (!WindowShouldClose()) {
         BeginDrawing();
@@ -20,6 +22,8 @@ int main() {
 
         EndDrawing();
     }
+
+    // update method
 
     CloseWindow();
     return 0;
