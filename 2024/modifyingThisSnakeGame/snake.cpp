@@ -22,16 +22,18 @@ void Snake::Draw() {
 }
 
 void Snake::Move() {
+    if (IsKeyPressed(KEY_LEFT) && direction.x != 1) {
+        direction = { -1, 0 };
+    }
+    if (IsKeyPressed(KEY_RIGHT) && direction.x != -1) {
+        direction = { 1, 0 };
+    }
     if (IsKeyPressed(KEY_UP) && direction.y != 1) {
        direction = { 0, -1 };
     }
     if (IsKeyPressed(KEY_DOWN) && direction.y != -1) {
         direction = { 0, 1 };
     }
-    if (IsKeyPressed(KEY_LEFT) && direction.x != 1) {
-        direction = { -1, 0 };
-    }
-    // if (IsKeyPressed(KEY_RIGHT) && direction.x != -1)
 }
 
 void Snake::Death() {
@@ -41,7 +43,7 @@ void Snake::Death() {
 
 
 // move
-// pop
+// popf
 // consume
 // die
 // score
