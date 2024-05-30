@@ -3,11 +3,12 @@
 Snake::Snake() {
     Vector2 direction = { 1, 0 };
     bool addSegment = false;
+    // assign things to do here, like var = func(), not var = 0 ; watch out above
 }
 
 Snake::~Snake() {
 }
-// https://github.com/educ8s/Cpp-Retro-Snake-Game-with-raylib/blob/main/main.cpp
+
 void Snake::Update() {
     Move();
     Draw();  // evemt of death?
@@ -29,11 +30,22 @@ void Snake::Move() {
         direction = { 1, 0 };
     }
     if (IsKeyPressed(KEY_UP) && direction.y != 1) {
-       direction = { 0, -1 };
+        direction = { 0, -1 };
     }
     if (IsKeyPressed(KEY_DOWN) && direction.y != -1) {
         direction = { 0, 1 };
     }
+
+    if (st.EventTrigger(0.05)) {
+        for (int i = 0; i < body.size(); i++) {
+            //if (st.EventTrigger(0.05)) {
+            body[i].x += direction.x;
+            body[i].y += direction.y;
+            //}
+        }
+    }
+
+    // problem: keydown seems to be not responsive all the time : cant go in opposite direction = fine, but why?
 }
 
 void Snake::Death() {
@@ -41,9 +53,9 @@ void Snake::Death() {
     direction = { 1, 0 };
 }
 
-
+// timer func for all use
 // move
-// popf
+// pop
 // consume
 // die
 // score
