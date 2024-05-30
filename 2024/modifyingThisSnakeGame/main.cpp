@@ -12,18 +12,20 @@ int main() {
     SetTargetFPS(60);
     
     Food food;
-    // Snake snake;
+    Snake snake;
 
     while (!WindowShouldClose()) {
         BeginDrawing();
 
         ClearBackground(st.darkGreen);
         food.Draw();
+        // snake.Draw();
+        snake.Update();
 
         EndDrawing();
     }
 
-    // update method
+    // update method for entire game, for individual update methods in one place
 
     CloseWindow();
     return 0;
