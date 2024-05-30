@@ -10,6 +10,7 @@ public:
 	deque<Vector2> body = { Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9} };
 	Vector2 direction;
 	bool addSegment;
+	bool dirSwitch = true;
 
 	Snake();
 	~Snake();
