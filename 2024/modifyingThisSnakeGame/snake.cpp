@@ -1,7 +1,6 @@
 #include "snake.h"
 
 Snake::Snake() {
-    Vector2 direction = { 1, 0 };
     bool addSegment = false;
     // assign things to do here, like var = func(), not var = 0 ; watch out above
 }
@@ -37,15 +36,14 @@ void Snake::Move() {
     }
 
     if (st.EventTrigger(0.05)) {
-        for (int i = 0; i < body.size(); i++) {
-            //if (st.EventTrigger(0.05)) {
-            body[i].x += direction.x;
-            body[i].y += direction.y;
-            //}
+        body[0].x += direction.x;
+        body[0].y += direction.y;
+        for (int i = 1; i < body.size(); i++) {
+            Vector2 currSeg = { body[i].x, body[i].y };
+            body[i].x = body[0].x - i * direction.x;
+            body[i].y = body[0].y - i * direction.y;
         }
     }
-
-    // problem: keydown seems to be not responsive all the time : cant go in opposite direction = fine, but why?
 }
 
 void Snake::Death() {
