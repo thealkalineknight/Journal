@@ -22,29 +22,21 @@ void Snake::Draw() {
 }
 
 void Snake::Move() {
-    if (IsKeyPressed(KEY_LEFT) && direction.x != 1) {
-        direction = { -1, 0 };
-    }
-    if (IsKeyPressed(KEY_RIGHT) && direction.x != -1) {
-        direction = { 1, 0 };
-    }
-    if (IsKeyPressed(KEY_UP) && direction.y != 1) {
-        direction = { 0, -1 };
-    }
-    if (IsKeyPressed(KEY_DOWN) && direction.y != -1) {
-        direction = { 0, 1 };
-    }
+    if (IsKeyPressed(KEY_LEFT) && direction.x != 1) direction = { -1, 0 };
+    if (IsKeyPressed(KEY_RIGHT) && direction.x != -1) direction = { 1, 0 };
+    if (IsKeyPressed(KEY_UP) && direction.y != 1) direction = { 0, -1 };
+    if (IsKeyPressed(KEY_DOWN) && direction.y != -1) direction = { 0, 1 };
 
-    if (st.EventTrigger(0.05)) {
+    if (st.EventTrigger(0.5)) {
+        Vector2 currSeg = { body[0].x, body[0].y };
         body[0].x += direction.x;
         body[0].y += direction.y;
-        for (int i = 1; i < body.size() - 1; i++) {
-            Vector2 currSeg = { body[i].x, body[i].y };
-            body[i].x = body[0].x - i * direction.x;
-            body[i].y = body[0].y - i * direction.y;
+        for (int i = 1; i < body.size(); i++) {
+            Vector2 tempSeg = { body[i].x, body[i].y };
+            body[i].x = currSeg.x;
+            body[i].y = currSeg.y;
 
-            body[i + 1].x = currSeg.x;
-            body[i + 1].y = currSeg.y;
+            currSeg = { tempSeg.x, tempSeg.y };
         }
     }
 }
