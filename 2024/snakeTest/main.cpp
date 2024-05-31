@@ -1,6 +1,5 @@
-#include "ball.h"
+﻿#include "ball.h"
 #include "paddle.h"
-#include "food.h"
 #include "snake.h"
 #include <iostream>
 using namespace std;

@@ -12,7 +12,7 @@ Food::~Food() {
 }
 
 void Food::Draw() {
-    DrawRectangle(position.x * st.cellSize, position.y * st.cellSize, st.cellSize, st.cellSize, st.green);
+    // DrawRectangle(position.x * st.cellSize, position.y * st.cellSize, st.cellSize, st.cellSize, st.green);
     // DrawTexture(texture, position.x * st.cellSize, position.y * st.cellSize, WHITE);
 }
 

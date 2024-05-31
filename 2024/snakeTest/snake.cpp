@@ -9,8 +9,9 @@ Snake::~Snake() {
 }
 
 void Snake::Update() {
+    Consume();
     Move();
-    Draw();  // evemt of death?
+    Draw(); 
 }
 
 void Snake::Draw() {
@@ -19,6 +20,7 @@ void Snake::Draw() {
         int y = body[i].y;
         DrawRectangle(x * st.cellSize, y * st.cellSize, st.cellSize, st.cellSize, st.aColor);
     }
+    DrawRectangle(fd.position.x * st.cellSize, fd.position.y * st.cellSize, st.cellSize, st.cellSize, st.green);
 }
 
 void Snake::Move() {
@@ -28,7 +30,7 @@ void Snake::Move() {
     if (IsKeyPressed(KEY_DOWN) && direction.y != -1) direction = { 0, 1 };
 
     if (st.EventTrigger(0.5)) {
-        Vector2 currSeg = { body[0].x, body[0].y };
+        currSeg = { body[0].x, body[0].y };
         body[0].x += direction.x;
         body[0].y += direction.y;
         for (int i = 1; i < body.size(); i++) {
@@ -38,6 +40,17 @@ void Snake::Move() {
 
             currSeg = { tempSeg.x, tempSeg.y };
         }
+        if (addSegment) {
+            body.push_back(currSeg);
+            fd.position = fd.GenerateRandomCell();
+            addSegment = false;
+        }
+    }
+}
+
+void Snake::Consume() {
+    if (body[0].x == fd.position.x && body[0].y == fd.position.y) {
+        addSegment = true;
     }
 }
 
@@ -46,9 +59,5 @@ void Snake::Death() {
     direction = { 1, 0 };
 }
 
-// timer func for all use
-// move
-// pop
-// consume
-// die
-// score
+
+
