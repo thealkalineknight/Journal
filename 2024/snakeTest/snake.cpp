@@ -9,9 +9,10 @@ Snake::~Snake() {
 }
 
 void Snake::Update() {
-    Consume();
+    Draw();
     Move();
-    Draw(); 
+    Logic();
+    Consume();
 }
 
 void Snake::Draw() {
@@ -28,7 +29,9 @@ void Snake::Move() {
     if (IsKeyPressed(KEY_RIGHT) && direction.x != -1) direction = { 1, 0 };
     if (IsKeyPressed(KEY_UP) && direction.y != 1) direction = { 0, -1 };
     if (IsKeyPressed(KEY_DOWN) && direction.y != -1) direction = { 0, 1 };
+}
 
+void Snake::Logic() {
     if (st.EventTrigger(0.5)) {
         currSeg = { body[0].x, body[0].y };
         body[0].x += direction.x;
@@ -58,6 +61,4 @@ void Snake::Death() {
     body = { Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9} };
     direction = { 1, 0 };
 }
-
-
 
