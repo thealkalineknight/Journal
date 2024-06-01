@@ -20,6 +20,7 @@ public:
 	void Update();
 	void Draw();
 	void Move();
+	void Logic();
 	void Consume();
 	void Death();
 
