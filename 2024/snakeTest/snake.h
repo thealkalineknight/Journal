@@ -21,6 +21,7 @@ public:
 	void Draw();
 	void Move();
 	void Logic();
+	bool Collide();
 	void Consume();
 	void Death();
 

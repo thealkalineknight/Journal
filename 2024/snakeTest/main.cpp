@@ -1,6 +1,4 @@
-﻿#include "ball.h"
-#include "paddle.h"
-#include "snake.h"
+﻿#include "snake.h"
 #include <iostream>
 using namespace std;
 
@@ -17,8 +15,7 @@ int main() {
         BeginDrawing();
 
         ClearBackground(st.darkGreen);
-        food.Draw();
-        // snake.Draw();
+        //food.Draw();
         snake.Update();
 
         EndDrawing();

@@ -13,6 +13,7 @@ void Snake::Update() {
     Move();
     Logic();
     Consume();
+    Death();
 }
 
 void Snake::Draw() {
@@ -51,6 +52,16 @@ void Snake::Logic() {
     }
 }
 
+bool Snake::Collide() {
+    for (int i = 1; i < body.size(); i++) {
+        if (body[0].x == body[i].x && body[0].y == body[i].y) return true;
+    }
+    if (body[0].x <= -1 || body[0].x >= st.cellCount) return true;
+    if (body[0].y <= -1 || body[0].y >= st.cellCount) return true;
+
+    return false;
+}
+
 void Snake::Consume() {
     if (body[0].x == fd.position.x && body[0].y == fd.position.y) {
         addSegment = true;
@@ -58,7 +69,9 @@ void Snake::Consume() {
 }
 
 void Snake::Death() {
-    body = { Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9} };
-    direction = { 1, 0 };
+    if (Collide()) {
+        body = { Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9} };
+        direction = { 1, 0 };
+    }
 }
 
