@@ -12,3 +12,4 @@ void Square::Draw() {
         DrawCircle(matrixA[i].x, matrixA[i].y, pt.radius, BLUE);
     }
 }
+
