@@ -24,3 +24,11 @@ float Cube::Remap(float point, int p) {
     if (p == 1) point *= st.scrHei;
     return point;
 }
+
+
+//Remap Func:
+// Goal; Normalize, then remap.
+// Range [-1, 1] to [0, 1]
+// Why?; although og always -z then conv to z, if -x/-y, will be [-1, 0]
+// Then; Increase with wid, hei as a factor.
+
