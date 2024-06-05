@@ -2,14 +2,19 @@
 
 Cube::Cube() {
     pt.radius = 5;
+
+    Transform('t', 0);
+    Transform('s', 1);
+    Transform('r', 2);
 }
 
 void Cube::Update() {
+    //Transform('r', 0);
+    //th += 0.01;
 }
 
 void Cube::Draw() {
     for (int i = 0; i < matrixA.size(); i++) {
-        Scale();
         float x = matrixA[i].x / -matrixA[i].z;
         float y = matrixA[i].y / -matrixA[i].z;
         x = Remap(x, 0);
@@ -26,15 +31,38 @@ float Cube::Remap(float point, int p) {
     return point;
 }
 
-void Cube::Scale() {
+void Cube::Transform(char mode, int coor) {
+
     for (int i = 0; i < matrixA.size(); i++) {
         int x = matrixA[i].x;
         int y = matrixA[i].y;
         int z = matrixA[i].z;
 
-        matrixA[i].x = x * mI[0].x + y * mI[1].x + z * mI[2].x;
-        matrixA[i].y = x * mI[0].y + y * mI[1].y + z * mI[2].y;
-        matrixA[i].z = x * mI[0].z + y * mI[1].z + z * mI[2].z;
+        if (mode == 't') {
+            if (coor == 0) matrixA[i].x += Tf;
+            if (coor == 1) matrixA[i].y += Tf;
+            if (coor == 2) matrixA[i].z += Tf;
+        }
+
+        else {
+            vector<Vector3> M{};
+            if (mode == 's') {
+                M = mS;
+                if (coor == 0) M[0].x = Sf;
+                if (coor == 1) M[1].y = Sf;
+                if (coor == 2) M[2].z = Sf;
+            }
+            else if (mode == 'r') {
+
+                if (coor == 0) M = mRx;
+                if (coor == 1) M = mRy;
+                if (coor == 2) M = mRz;
+            }
+
+            matrixA[i].x = x * M[0].x + y * M[1].x + z * M[2].x;
+            matrixA[i].y = x * M[0].y + y * M[1].y + z * M[2].y;
+            matrixA[i].z = x * M[0].z + y * M[1].z + z * M[2].z;
+        }
     }
 }
 
