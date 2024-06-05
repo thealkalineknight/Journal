@@ -11,7 +11,16 @@ public:
     void Update();
     void Draw();
     float Remap(float point, int p);
-    void Scale();
+    void Transform(char mode, int coor);
+
+    float Tf = 1.3;
+
+    float Sx = 1;
+    float Sy = 1;
+    float Sz = 1;
+    float Sf = 1.9;
+
+    float th = -0.43;
 
 private:
     vector<Vector3> matrixA = {
@@ -25,8 +34,38 @@ private:
         Vector3{-1, -1, -5},
         Vector3{1, -1, -5} };
 
-    vector<Vector3> mI = {    // TRY changing me!
+    vector<Vector3> matrixAt = {
+        Vector3{0, 0, 0},
+        Vector3{0, 0, 0},
+        Vector3{0, 0, 0},
+        Vector3{0, 0, 0},
+
+        Vector3{0, 0, 0},
+        Vector3{0, 0, 0},
+        Vector3{0, 0, 0},
+        Vector3{0, 0, 0} };
+
+    //----------
+
+    vector<Vector3> mS = {
+        Vector3{Sx, 0, 0},
+        Vector3{0, Sy, 0},
+        Vector3{0, 0, Sz} };
+
+    //----------
+
+    vector<Vector3> mRx = {
         Vector3{1, 0, 0},
+        Vector3{0, cos(th), sin(th)},
+        Vector3{0, -sin(th), cos(th)}};
+
+    vector<Vector3> mRy = {
+        Vector3{cos(th), 0, -sin(th)},
         Vector3{0, 1, 0},
+        Vector3{sin(th), 0, cos(th)}};
+
+    vector<Vector3> mRz = {
+        Vector3{cos(th), sin(th), 0},
+        Vector3{-sin(th), cos(th), 0},
         Vector3{0, 0, 1} };
 };  
