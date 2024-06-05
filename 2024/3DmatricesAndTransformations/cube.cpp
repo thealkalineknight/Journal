@@ -5,7 +5,8 @@ Cube::Cube() {
 
     //Transform('t', 0);
     //Transform('s', 1);
-    //Transform('r', 2);
+    //Transform('r', 2); 
+    // everything works normal except multiple rotations (look into it later) maybe its the trig..?
 }
 
 void Cube::Update() {
