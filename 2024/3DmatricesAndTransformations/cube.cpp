@@ -3,9 +3,9 @@
 Cube::Cube() {
     pt.radius = 5;
 
-    //Transform('t', 0);
-    //Transform('s', 1);
-    //Transform('r', 2); 
+    Transform('t', 0);
+    Transform('s', 1);
+    Transform('r', 2);
     // everything works normal except multiple rotations (look into it later) maybe its the trig..?
 }
 
@@ -24,11 +24,11 @@ void Cube::Draw() {
         DrawCircle(x, y, pt.radius, RED);
         matrixAt[i].x = x; matrixAt[i].y = y;
 
-        if (i + 1 < matrixA.size()) {
+        if (i + 1 < matrixAt.size()) {
             DrawLine(matrixAt[i].x, matrixAt[i].y, matrixAt[i + 1].x, matrixAt[i + 1].y, ORANGE);
         }
-        for (int j = 0; j < 3; j++) {
-            DrawLine(matrixAt[j].x, matrixAt[j].y, matrixAt[7 - j].x, matrixAt[7 - j].y, ORANGE);
+        if (i < 3) {
+            DrawLine(matrixAt[i].x, matrixAt[i].y, matrixAt[7 - i].x, matrixAt[7 - i].y, ORANGE);
         }
     }
     DrawLine(matrixAt[0].x, matrixAt[0].y, matrixAt[3].x, matrixAt[3].y, ORANGE);
