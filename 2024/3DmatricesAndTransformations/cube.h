@@ -13,7 +13,7 @@ public:
     float Remap(float point, int p);
     void Transform(char mode, int coor);
 
-    float Tf = 1.3;
+    float Tf = -1.3;
 
     float Sx = 1;
     float Sy = 1;
@@ -26,13 +26,13 @@ private:
     vector<Vector3> matrixA = {
         Vector3{-1, 1, -3},
         Vector3{1, 1, -3},
-        Vector3{-1, -1, -3},
         Vector3{1, -1, -3},
+        Vector3{-1, -1, -3},
 
-        Vector3{-1, 1, -5},
-        Vector3{1, 1, -5},
         Vector3{-1, -1, -5},
-        Vector3{1, -1, -5} };
+        Vector3{1, -1, -5},
+        Vector3{1, 1, -5},
+        Vector3{-1, 1, -5} };
 
     vector<Vector3> matrixAt = {
         Vector3{0, 0, 0},
