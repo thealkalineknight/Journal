@@ -12,4 +12,10 @@ public:
 	Color aColor = Color{ 56, 45, 23, 67 };
 	const int scrWid = 800;
 	const int scrHei = 800;
+
+	Settings();
+
+	double prevTime;
+	double currTime;
+	bool EventTrigger(double interval);
 };
