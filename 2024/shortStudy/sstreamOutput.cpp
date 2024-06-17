@@ -61,4 +61,6 @@ vector<int> parseInts(string str) {
 }
 
 Missing Concept: Action while true test
+
+Also: can use same concept for counting words in an sstring.
 */
