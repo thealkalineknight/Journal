@@ -1,5 +1,6 @@
 import sys
 from settings import *
+from cubeOld import *
 from cube import *
 
 
@@ -17,6 +18,7 @@ class Game:
         self.new_game()
 
     def new_game(self):  # if calls property from other class, list after
+        self.cubeOld = CubeOld(self)
         self.cube = Cube(self)
 
     def run(self):
@@ -26,14 +28,14 @@ class Game:
             self.check_events()
 
     def update(self):
-        self.cube.update()
+        # self.cubeOld.update()
         self.dtime = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps():.1f}')
 
     def draw(self):
         pg.display.flip()
         self.screen.fill('black')
-        # self.cube.draw()
+        # self.cubeOld.draw()
         self.cube.draw2()
 
     def check_events(self):
