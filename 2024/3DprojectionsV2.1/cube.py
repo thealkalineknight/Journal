@@ -60,6 +60,7 @@ class Cube:
             RzPz = RyPx * mRz[0][2] + RyPy * mRz[1][2] + RyPz * mRz[2][2]
 
             z = 1 / (self.dist - RzPz)  # t1 scales it down and makes larger dist further instead of reverse
+            # z = 1  # uncomment for orthographic projection
 
             pjM = [[z, 0, 0],
                    [0, z, 0]]
