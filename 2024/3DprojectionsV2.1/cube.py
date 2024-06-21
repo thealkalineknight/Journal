@@ -67,8 +67,8 @@ class Cube:
 
             x = RzPx * pjM[0][0] + RzPy * pjM[1][0]
             y = RzPx * pjM[0][1] + RzPy * pjM[1][1]
-            x = int(x * 100 + HWIDTH)
-            y = int(y * 100 + HHEIGHT)
+            x = int(x * SCALE + HWIDTH)
+            y = int(y * SCALE + HHEIGHT)
             pg.draw.circle(self.game.screen, 'red', (x, y), 5)
 
             self.matrixAt[i][0] = x
