@@ -27,7 +27,6 @@ int main() {
     int maxItem = nums[remMax];
 
     for (int i = remMin; i < remMax; i++) {
-
         nums.erase(nums.begin() + remMin);
     }
 
