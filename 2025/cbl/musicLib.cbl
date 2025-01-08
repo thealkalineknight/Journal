@@ -20,6 +20,7 @@
                15 death-metal.
                    25 sname pic X(30).
                    25 bpm pic 9(3).
+       01 top-artist pic A(12) value "Spiderguaves".
 
        procedure division.
            move "Voice of the Soul" to sname of death-metal.
@@ -28,6 +29,7 @@
            move 136104 to bpm of prog-rock.
 
            display sname of prog-rock " has bpms " bpm of prog-rock.
+           display "I love " top-artist.
 
            stop run
            .
